@@ -15,7 +15,7 @@ let myPosts = []
 
 const saveMyPosts = () => {
   conversationHistory.forEach((itemWithCursor) => {
-    itemWithCursor.forEach((message, index) => {
+    itemWithCursor.forEach((message) => {
       // only me
       if (message.user !== process.env.SLACK_MY_USER_ID) return
 
