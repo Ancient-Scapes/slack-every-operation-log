@@ -6,6 +6,22 @@
 node index.js
 ```
 
+## Getting Started
+
+- setting your apps and permissions [Create New App]
+  - [Slack API: Applications | Slack](https://api.slack.com/apps)
+- clone this repository
+- yarn install
+- touch .env
+- define your environment variables(sample)
+
+```env
+SLACK_TOKEN='xoxp-xxxxxxxxx'
+SLACK_BOT_TOKEN='xoxb-xxxxxxx'
+SLACK_SIGNING_SECRET='xxxxxxxxx'
+FETCH_CHANNEL='xxxxxxxx'
+```
+
 ## 目的
 
 毎日の作業開始時刻と終了時刻を取得し、月単位で取得する
@@ -22,24 +38,9 @@ node index.js
   - あとは煮るなり焼くなり…
 
 
-## 参考になるもの
+## Link
 
 - [API Methods | Slack](https://api.slack.com/methods)
   - channel系操作はconversations
   - 履歴はconversations.history
-
-## Getting Started
-
-- setting your apps and permissions [Create New App]
-  - [Slack API: Applications | Slack](https://api.slack.com/apps)
-- clone this repository
-- yarn install
-- touch .env
-- define your environment variables(sample)
-
-```env
-SLACK_TOKEN='xoxp-xxxxxxxxx'
-SLACK_BOT_TOKEN='xoxb-xxxxxxx'
-SLACK_SIGNING_SECRET='xxxxxxxxx'
-FETCH_CHANNEL='xxxxxxxx'
-```
+  - historyは先にjoin APIを叩いておく必要あり
