@@ -7,18 +7,6 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET
 })
 
-
-async function joinChannel(id) {
-  try {
-    await app.client.conversations.join({
-      token,
-      channel: id,
-    })
-  } catch (e) {
-    console.error(e)
-  }
-}
-
 let conversationHistory
 
 async function fetchHistory(id) {
