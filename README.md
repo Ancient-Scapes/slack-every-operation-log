@@ -1,5 +1,11 @@
 # slack-every-operation-log
 
+## Usage
+
+```shell
+node index.js
+```
+
 ## 目的
 
 毎日の作業開始時刻と終了時刻を取得し、月単位で取得する
