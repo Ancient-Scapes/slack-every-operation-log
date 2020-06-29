@@ -5,6 +5,8 @@
   "license": "MIT",
   "dependencies": {
     "@slack/bolt": "^2.1.1",
-    "dotenv": "^8.2.0"
+    "dayjs": "^1.8.28",
+    "dotenv": "^8.2.0",
+    "unix-timestamp": "^0.2.0"
   }
 }
