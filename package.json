@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "@slack/web-api": "^5.10.0",
+    "@slack/bolt": "^2.1.1",
     "dotenv": "^8.2.0"
   }
 }
