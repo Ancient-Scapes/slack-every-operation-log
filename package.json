@@ -2,5 +2,9 @@
   "name": "slack-every-operation-log",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@slack/web-api": "^5.10.0",
+    "dotenv": "^8.2.0"
+  }
 }
