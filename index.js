@@ -60,7 +60,7 @@ async function fetchHistory(id) {
   try {
     await app.start(process.env.PORT || 3000)
     console.log("⚡️ Bolt app is running!")
-    await fetchHistory(process.env.FETCH_CHANNEL)
+    await fetchHistory(process.env.FETCH_CHANNEL_ID)
     saveMyPosts()
     // TODO: 稼働時間を計算しArrayに入れていく処理
   } catch (e) {
