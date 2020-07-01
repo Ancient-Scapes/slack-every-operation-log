@@ -11,27 +11,6 @@ const app = new App({
 })
 
 let conversationHistory = []
-let myPosts = []
-
-const saveMyPosts = () => {
-  conversationHistory.forEach((itemWithCursor) => {
-    itemWithCursor.forEach((message) => {
-      // only me
-      if (message.user !== process.env.SLACK_MY_USER_ID) return
-
-      // slack timestamp(UNIX epoch milliseconds) to date
-      message.date = timestamp.toDate(Number(message.ts));
-      myPosts.push(message)
-    })
-  })
-
-  // 昇順
-  myPosts = myPosts.sort((a, b) => a.date - b.date)
-  myPosts.forEach((message) => {
-    console.log(dayjs(message.date).format("YYYY/MM/DD HH:mm:ss"));
-    console.log(message.text);
-  })
-}
 
 async function fetchHistory(id) {
   try {
@@ -56,13 +35,47 @@ async function fetchHistory(id) {
   }
 }
 
+const getMyPosts = () => {
+  let myPosts = [];
+
+  conversationHistory.forEach((itemWithCursor) => {
+    itemWithCursor.forEach((message) => {
+      // only me
+      if (message.user !== process.env.SLACK_MY_USER_ID) return;
+
+      // slack timestamp(UNIX epoch milliseconds) to date
+      message.date = timestamp.toDate(Number(message.ts));
+      myPosts.push(message);
+    });
+  });
+
+  // 昇順
+  myPosts = myPosts.sort((a, b) => a.date - b.date);
+
+  return myPosts
+};
+
+const outputDailyPosts = (myPosts) => {
+  let day
+
+  myPosts.forEach((message) => {
+    // 次の日になったら日付を出すよ
+    if (message.date.getDay() !== day) {
+      console.log(`\n${dayjs(message.date).format("YYYY/MM/DD")}`);
+    }
+    console.log(`[${dayjs(message.date).format("HH:mm:ss")}] ${message.text}`);
+
+    day = message.date.getDay()
+  });
+}
+
 (async () => {
   try {
     await app.start(process.env.PORT || 3000)
-    console.log("⚡️ Bolt app is running!")
+    
     await fetchHistory(process.env.FETCH_CHANNEL_ID)
-    saveMyPosts()
-    // TODO: 稼働時間を計算しArrayに入れていく処理
+    const myPosts = getMyPosts()
+    outputDailyPosts(myPosts)
   } catch (e) {
     console.error(e)
   } finally {
