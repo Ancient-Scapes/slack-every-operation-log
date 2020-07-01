@@ -16,10 +16,39 @@ node index.js
 - define your environment variables(sample)
 
 ```env
-SLACK_TOKEN='xoxp-xxxxxxxxx'
-SLACK_BOT_TOKEN='xoxb-xxxxxxx'
-SLACK_SIGNING_SECRET='xxxxxxxxx'
-FETCH_CHANNEL='xxxxxxxx'
+// copy from slack api site
+SLACK_BOT_TOKEN='xoxb-xxxxx'
+SLACK_SIGNING_SECRET='xxxxxx'
+
+// copy url from my slack workspace
+FETCH_KINTAI_CHANNEL_ID='xxxxxx'
+SLACK_MY_USER_ID='xxxxxx'
+```
+
+- `node index.js`
+  - output dailywork log.
+
+### example
+
+```shell
+2020/06/25
+[12:38:19] かいし
+[15:37:27] おそとでちゃうよぉ〜〜〜〜
+[23:11:52] 終わり
+
+2020/06/26
+[11:31:11] 風呂入って開始
+[18:29:01] 終わり
+
+2020/06/29
+[11:44:25] かいし
+[16:49:00] 休憩
+[18:10:36] 終わり
+
+2020/06/30
+[11:46:24] かいし
+[18:27:49] 終了
+
 ```
 
 ## 目的
