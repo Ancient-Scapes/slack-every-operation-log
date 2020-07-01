@@ -56,16 +56,16 @@ const getMyPosts = () => {
 };
 
 const outputDailyPosts = (myPosts) => {
-  let day
+  let date
 
   myPosts.forEach((message) => {
     // 次の日になったら日付を出すよ
-    if (message.date.getDay() !== day) {
+    if (message.date.getDate() !== date) {
       console.log(`\n${dayjs(message.date).format("YYYY/MM/DD")}`);
     }
     console.log(`[${dayjs(message.date).format("HH:mm:ss")}] ${message.text}`);
 
-    day = message.date.getDay()
+    date = message.date.getDate()
   });
 }
 
