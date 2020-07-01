@@ -73,7 +73,7 @@ const outputDailyPosts = (myPosts) => {
   try {
     await app.start(process.env.PORT || 3000)
     
-    await fetchHistory(process.env.FETCH_CHANNEL_ID)
+    await fetchHistory(process.env.FETCH_KINTAI_CHANNEL_ID)
     const myPosts = getMyPosts()
     outputDailyPosts(myPosts)
   } catch (e) {
